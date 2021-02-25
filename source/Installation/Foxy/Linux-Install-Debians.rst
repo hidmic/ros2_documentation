@@ -49,6 +49,13 @@ No GUI tools.
 .. code-block:: bash
 
    sudo apt install ros-foxy-ros-base
+   
+Install extensions for colcon
+-----------------------------
+
+.. code-block:: bash
+
+   sudo apt install python3-colcon-common-extensions
 
 Environment setup
 -----------------
