@@ -31,6 +31,7 @@ If you are new and looking to learn the ropes, start with the :ref:`Tutorials <T
    Guides/Using-Python-Packages
    Guides/RQt-Port-Plugin-Windows
    Guides/Run-2-nodes-in-single-or-separate-docker-containers
+   Guides/Using-Variants
 
 .. toctree::
   :hidden:
