@@ -237,7 +237,7 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 .. code-block:: bash
 
    python_d
-   import _ctypes
+   >>> import _ctypes
 
 * Once you have verified the operation of ``python_d``, it is necessary to reinstall a few dependencies with the debug-enabled libraries:
 
@@ -252,8 +252,8 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
    python_d
    # No import errors should appear when executing the following lines
-   from lxml import etree
-   import numpy
+   >>> from lxml import etree
+   >>> import numpy
 
 * When you wish to return to building release binaries, it is necessary to uninstall the debug variants and use the release variants:
 
