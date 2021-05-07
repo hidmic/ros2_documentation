@@ -39,7 +39,9 @@ Run the installer with default parameters, as the following commands assume you 
 
 This command sets an environment variable that persists over sessions:
 
-* ``setx -m OPENSSL_CONF "C:\Program Files\OpenSSL-Win64\bin\openssl.cfg"``
+.. code-block:: bash
+
+   setx -m OPENSSL_CONF "C:\Program Files\OpenSSL-Win64\bin\openssl.cfg"
 
 You will need to append the OpenSSL-Win64 bin folder to your PATH.
 You can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
