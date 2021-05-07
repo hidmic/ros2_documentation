@@ -262,7 +262,7 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
    > python -m pip uninstall numpy lxml
    > python -m pip install numpy lxml
 
-* To create executables python scripts(.exe), python_d should be used to invoke colcon
+* To create executables python scripts(.exe), ``python_d`` should be used to invoke colcon
 
 .. code-block:: bash
 
