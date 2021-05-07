@@ -17,7 +17,7 @@ Open a Command Prompt and type the following to install Python via Chocolatey:
 
 .. code-block:: bash
 
-   > choco install -y python --version 3.8.3
+   choco install -y python --version 3.8.3
 
 Install Visual C++ Redistributables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -26,7 +26,7 @@ Open a Command Prompt and type the following to install them via Chocolatey:
 
 .. code-block:: bash
 
-   > choco install -y vcredist2013 vcredist140
+   choco install -y vcredist2013 vcredist140
 
 Install OpenSSL
 ^^^^^^^^^^^^^^^
@@ -97,7 +97,7 @@ As some chocolatey packages rely on it, we start by installing CMake
 
 .. code-block:: bash
 
-   > choco install -y cmake
+   choco install -y cmake
 
 You will need to append the CMake bin folder ``C:\Program Files\CMake\bin`` to your PATH.
 
@@ -115,7 +115,7 @@ Once these packages are downloaded, open an administrative shell and execute the
 
 .. code-block:: bash
 
-   > choco install -y -s <PATH\TO\DOWNLOADS\> asio cunit eigen tinyxml-usestl tinyxml2 log4cxx bullet
+   choco install -y -s <PATH\TO\DOWNLOADS\> asio cunit eigen tinyxml-usestl tinyxml2 log4cxx bullet
 
 Please replace ``<PATH\TO\DOWNLOADS>`` with the folder you downloaded the packages to.
 
@@ -149,8 +149,8 @@ Finally, set the ``Qt5_DIR`` environment variable in the ``cmd.exe`` where you i
 
 .. code-block:: bash
 
-   > set Qt5_DIR=C:\Qt\5.15.0\msvc2019_64
-   > set QT_QPA_PLATFORM_PLUGIN_PATH=C:\Qt\5.15.0\msvc2019_64\plugins\platforms
+   set Qt5_DIR=C:\Qt\5.15.0\msvc2019_64
+   set QT_QPA_PLATFORM_PLUGIN_PATH=C:\Qt\5.15.0\msvc2019_64\plugins\platforms
 
 You could set it permanently with ``setx -m Qt5_DIR C:\Qt\5.15.0\msvc2019_64`` and ``setx -m QT_QPA_PLATFORM_PLUGIN_PATH C:\Qt\5.15.0\msvc2019_64\plugins\platforms`` instead, but that requires Administrator.
 
