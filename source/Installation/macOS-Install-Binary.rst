@@ -123,12 +123,6 @@ You need the following things installed before installing ROS 2.
 
        python3 -m pip install argcomplete catkin_pkg empy ifcfg importlib-metadata lark-parser lxml netifaces numpy pyparsing pyyaml setuptools
 
-Disable System Integrity Protection (SIP)
------------------------------------------
-
-macOS/OS X versions >=10.11 have System Integrity Protection enabled by default.
-So that SIP doesn't prevent processes from inheriting dynamic linker environment variables, such as ``DYLD_LIBRARY_PATH``, you'll need to disable it `following these instructions <https://developer.apple.com/library/content/documentation/Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html>`__.
-
 Downloading ROS 2
 -----------------
 
@@ -147,6 +141,18 @@ Instead you may download nightly `prerelease binaries <Prerelease_binaries>`.
        mkdir -p ~/ros2_rolling
        cd ~/ros2_rolling
        tar xf ~/Downloads/ros2-package-osx-x86_64.tar.bz2
+
+System Integrity Protection (SIP)
+---------------------------------
+
+macOS/OS X versions >=10.11 have System Integrity Protection enabled by default, which will prevent all ros2 libraries from executing.
+
+Run the following command on the folder where you unpacked ros2 to remove quarantine flag:
+
+.. code-block:: bash
+
+   sudo xattr -r -d com.apple.quarantine ~/ros2_rolling
+
 
 Install additional DDS implementations (optional)
 -------------------------------------------------
