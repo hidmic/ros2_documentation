@@ -26,7 +26,7 @@ Install additional prerequisites from Chocolatey
 
 .. code-block:: bash
 
-   > choco install -y cppcheck curl git winflexbison3
+   choco install -y cppcheck curl git winflexbison3
 
 You will need to append the Git cmd folder ``C:\Program Files\Git\cmd`` to the PATH (you can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
 In the resulting dialog, click "Environment Variables", the click "Path" on the bottom pane, then click "Edit" and add the path).
@@ -39,7 +39,7 @@ Installing additional Python dependencies:
 
 .. code-block:: bash
 
-   > pip install -U colcon-common-extensions coverage flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes mock mypy pep8 pydocstyle pytest pytest-mock vcstool
+   pip install -U colcon-common-extensions coverage flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes mock mypy pep8 pydocstyle pytest pytest-mock vcstool
 
 Install miscellaneous prerequisites
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -59,28 +59,28 @@ First setup a development folder, for example ``C:\dev\ros2_rolling``:
 
 .. code-block:: bash
 
-   > md \dev\ros2_rolling\src
-   > cd \dev\ros2_rolling
+   md \dev\ros2_rolling\src
+   cd \dev\ros2_rolling
 
 Get the ``ros2.repos`` file which defines the repositories to clone from:
 
 .. code-block:: bash
 
    # CMD
-   > curl -sk https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos -o ros2.repos
+   curl -sk https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos -o ros2.repos
 
    # PowerShell
-   > curl https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos -o ros2.repos
+   curl https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos -o ros2.repos
 
 Next you can use ``vcs`` to import the repositories listed in the ``ros2.repos`` file:
 
 .. code-block:: bash
 
    # CMD
-   > vcs import src < ros2.repos
+   vcs import src < ros2.repos
 
    # PowerShell
-   > vcs import --input ros2.repos src
+   vcs import --input ros2.repos src
 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -100,7 +100,7 @@ To build the ``\dev\ros2_rolling`` folder tree:
 
 .. code-block:: bash
 
-   > colcon build --merge-install
+   colcon build --merge-install
 
 .. note::
 
@@ -119,7 +119,7 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 
 .. code-block:: bash
 
-   > call C:\dev\ros2_rolling\install\local_setup.bat
+   call C:\dev\ros2_rolling\install\local_setup.bat
 
 This will automatically set up the environment for any DDS vendors that support was built for.
 
@@ -134,7 +134,7 @@ You can run the tests using this command:
 
 .. code-block:: bash
 
-   > colcon test --merge-install
+   colcon test --merge-install
 
 .. note::
 
@@ -144,22 +144,22 @@ Afterwards you can get a summary of the tests using this command:
 
 .. code-block:: bash
 
-   > colcon test-result
+   colcon test-result
 
 To run the examples, first open a clean new ``cmd.exe`` and set up the workspace by sourcing the ``local_setup.bat`` file.
 Then, run a C++ ``talker``\ :
 
 .. code-block:: bash
 
-   > call install\local_setup.bat
-   > ros2 run demo_nodes_cpp talker
+   call install\local_setup.bat
+   ros2 run demo_nodes_cpp talker
 
 In a separate shell you can do the same, but instead run a Python ``listener``\ :
 
 .. code-block:: bash
 
-   > call install\local_setup.bat
-   > ros2 run demo_nodes_py listener
+   call install\local_setup.bat
+   ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 This verifies both the C++ and Python APIs are working properly.
@@ -194,14 +194,14 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
 .. code-block:: bash
 
-   > choco install -y peazip
+   choco install -y peazip
 
 
 * You'll also need SVN, since some of the Python source-build dependencies are checked out via SVN:
 
 .. code-block:: bash
 
-   > choco install -y svn hg
+   choco install -y svn hg
 
 
 * You'll need to quit and restart the command prompt after installing the above.
@@ -214,59 +214,59 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
 .. code-block:: bash
 
-   > cd C:\dev\Python-3.8.3\PCbuild
-   > get_externals.bat
-   > build.bat -p x64 -d
+   cd C:\dev\Python-3.8.3\PCbuild
+   get_externals.bat
+   build.bat -p x64 -d
 
 
 * Finally, copy the build products into the Python38 installation directories, next to the Release-mode Python executable and DLL's:
 
 .. code-block:: bash
 
-   > cd C:\dev\Python-3.8.3\PCbuild\amd64
-   > copy python_d.exe C:\Python38 /Y
-   > copy python38_d.dll C:\Python38 /Y
-   > copy python3_d.dll C:\Python38 /Y
-   > copy python38_d.lib C:\Python38\libs /Y
-   > copy python3_d.lib C:\Python38\libs /Y
-   > for %I in (*_d.pyd) do copy %I C:\Python38\DLLs /Y
+   cd C:\dev\Python-3.8.3\PCbuild\amd64
+   copy python_d.exe C:\Python38 /Y
+   copy python38_d.dll C:\Python38 /Y
+   copy python3_d.dll C:\Python38 /Y
+   copy python38_d.lib C:\Python38\libs /Y
+   copy python3_d.lib C:\Python38\libs /Y
+   for %I in (*_d.pyd) do copy %I C:\Python38\DLLs /Y
 
 
 * Now, from a fresh command prompt, make sure that ``python_d`` works:
 
 .. code-block:: bash
 
-   > python_d
-   > import _ctypes
+   python_d
+   >>> import _ctypes
 
 * Once you have verified the operation of ``python_d``, it is necessary to reinstall a few dependencies with the debug-enabled libraries:
 
 .. code-block:: bash
 
-   > python_d -m pip install --force-reinstall https://github.com/ros2/ros2/releases/download/numpy-archives/numpy-1.18.4-cp38-cp38d-win_amd64.whl
-   > python_d -m pip install --force-reinstall https://github.com/ros2/ros2/releases/download/lxml-archives/lxml-4.5.1-cp38-cp38d-win_amd64.whl
+   python_d -m pip install --force-reinstall https://github.com/ros2/ros2/releases/download/numpy-archives/numpy-1.18.4-cp38-cp38d-win_amd64.whl
+   python_d -m pip install --force-reinstall https://github.com/ros2/ros2/releases/download/lxml-archives/lxml-4.5.1-cp38-cp38d-win_amd64.whl
 
 * To verify the installation of these dependencies:
 
 .. code-block:: bash
 
-   > python_d
+   python_d
    # No import errors should appear when executing the following lines
-   > from lxml import etree
-   > import numpy
+   >>> from lxml import etree
+   >>> import numpy
 
 * When you wish to return to building release binaries, it is necessary to uninstall the debug variants and use the release variants:
 
 .. code-block:: bash
 
-   > python -m pip uninstall numpy lxml
-   > python -m pip install numpy lxml
+   python -m pip uninstall numpy lxml
+   python -m pip install numpy lxml
 
-* To create executables python scripts(.exe), python_d should be used to invoke colcon
+* To create executables python scripts(.exe), ``python_d`` should be used to invoke colcon
 
 .. code-block:: bash
 
-   > python_d path\to\colcon_executable build
+   python_d path\to\colcon_executable build
 
 * Hooray, you're done!
 
