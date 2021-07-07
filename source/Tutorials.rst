@@ -80,6 +80,7 @@ Miscellaneous
    Tutorials/Eclipse-Oxygen-with-ROS-2-and-rviz2
    Tutorials/Building-ROS-2-on-Linux-with-Eclipse-Oxygen
    Tutorials/Building-Realtime-rt_preempt-kernel-for-ROS-2
+   Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node
 
 Demos
 -----
