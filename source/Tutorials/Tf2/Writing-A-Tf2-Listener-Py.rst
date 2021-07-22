@@ -85,6 +85,11 @@ Open the file using your preferred text editor.
         def __init__(self):
             super().__init__('turtle_tf2_frame_listener')
 
+            # Declare and acquire `target_frame` parameter
+            self.declare_parameter('target_frame', 'turtle1')
+            self.target_frame = self.get_parameter(
+                'target_frame').get_parameter_value().string_value
+
             self._tf_buffer = Buffer()
             self._tf_listener = TransformListener(self._tf_buffer, self)
 
@@ -112,11 +117,13 @@ Open the file using your preferred text editor.
             self._output_timer = self.create_timer(1.0, self.on_timer)
 
         def on_timer(self):
-            from_frame_rel = 'turtle1'
+            # Store frame names in variables that will be used to
+            # compute transformations
+            from_frame_rel = self.target_frame
             to_frame_rel = 'turtle2'
 
-            # Look up for the transformation between turtle1 and turtle2 frames
-            # and send velocity commands for turtle2 to reach turtle1
+            # Look up for the transformation between target_frame and turtle2 frames
+            # and send velocity commands for turtle2 to reach target_frame
             try:
                 now = rclpy.time.Time()
                 trans = self._tf_buffer.lookup_transform(
@@ -199,6 +206,10 @@ With your text editor, open the launch file called ``turtle_tf2_demo.launch.py``
     def generate_launch_description():
         return LaunchDescription([
             ...,
+            DeclareLaunchArgument(
+                'target_frame', default_value='turtle1',
+                description='Target frame name.'
+            ),
             Node(
                 package='learning_tf2_py',
                 executable='turtle_tf2_broadcaster',
@@ -210,11 +221,14 @@ With your text editor, open the launch file called ``turtle_tf2_demo.launch.py``
             Node(
                 package='learning_tf2_py',
                 executable='turtle_tf2_listener',
-                name='listener'
+                name='listener',
+                parameters=[
+                    {'target_frame': LaunchConfiguration('target_frame')}
+                ]
             ),
         ])
 
-This will start a broadcaster for second turtle that we will spawn and listener that will subscribe to those transformations.
+This will declare a ``target_frame`` launch argument, start a broadcaster for second turtle that we will spawn and listener that will subscribe to those transformations.
 Now you're ready to start your full turtle demo:
 
 .. code-block:: console
