@@ -294,7 +294,6 @@ You should see the turtle rotating, as well as the following message in your ter
 
 .. code-block:: console
 
-  Waiting for an action server to become available...
   Sending goal:
      theta: 1.57
 
@@ -304,6 +303,8 @@ You should see the turtle rotating, as well as the following message in your ter
     delta: -1.568000316619873
 
   Goal finished with status: SUCCEEDED
+
+*Note*: Your output from above might contain a message like ``Waiting for an action server to become available...`` but that message just tells you that it's the first time the action server was called.
 
 All goals have a unique ID, shown in the return message.
 You can also see the result, a field with the name ``delta``, which is the displacement to the starting position.

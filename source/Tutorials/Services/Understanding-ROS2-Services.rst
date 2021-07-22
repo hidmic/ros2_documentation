@@ -248,6 +248,8 @@ You will get this method-style view of what’s happening, and then the service 
   response:
   turtlesim.srv.Spawn_Response(name='turtle2')
 
+*Note*: Your output from above might contain a message like ``Waiting for service to become available...`` but that message just tells you that it's the first time the service was called.
+
 Your turtlesim window will update with the newly spawned turtle right away:
 
 .. image:: spawn.png
