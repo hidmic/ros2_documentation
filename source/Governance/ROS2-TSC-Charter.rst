@@ -5,7 +5,7 @@ ROS 2 Technical Steering Committee Charter
 ==========================================
 
 :Date: 2021-02-06
-:Version: 0.5
+:Version: 0.6
 :Organization: info@openrobotics.org
 
 .. contents:: Table of Contents
@@ -51,11 +51,14 @@ The TSC seeks to coordinate the contributions that members and their organizatio
 The TSC cannot compel or oblige any action on the part of a member, his or her organization, or that organization’s employees.
 
 #. Material contribution is the commitment of a minimum level of effort toward developing software and/or documentation that is contributed to the project under the appropriate open source license.
-   This contribution may be in the form of in-kind labor and/or outsourced work.
+   This contribution may be in the form of in-kind labor and/or outsourced work to the ROS 2 Common Packages (REP-2005).
    No fees or payments beyond material contribution to the project are required for TSC membership.
 
 #. The minimum level of effort commitment required to qualify for TSC membership is **1 full-time equivalent (FTE)**.
    This level may be changed by the TSC via a standard TSC motion and vote.
+   The member should provide an effort report monthly in the corresponding TSC meeting minutes and complete at least one item of the roadmap of every ROS 2 release. TSC members are encouraged to add their planned items to the public roadmap.
+
+#. Enforcement of 1 FTE contribution: Every 6 months the contributions of the TSC members will be reviewed by a review panel composed of 3 TSC members. If the panel considers a member is not fulfilling the required membership effort, the concern will be communicated to TSC, and a vote will be ruled to decide if this member should continue being part of the TSC.
 
 #. The TSC must have at least three members.
 
