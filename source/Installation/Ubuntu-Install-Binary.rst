@@ -30,6 +30,7 @@ Add the ROS 2 apt repository
 ----------------------------
 
 .. include:: _Apt-Repositories.rst
+.. include:: _Apt-Repositories_Linux_Mint.rst
 
 Downloading ROS 2
 -----------------
@@ -71,8 +72,11 @@ Set your rosdistro according to the release you downloaded.
 
        rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src --rosdistro {DISTRO} -y --skip-keys "console_bridge fastcdr fastrtps osrf_testing_tools_cpp poco_vendor rmw_connextdds rti-connext-dds-5.3.1 tinyxml_vendor tinyxml2_vendor urdfdom urdfdom_headers"
 
-#. *Optional*\ : if you want to use the ROS 1<->2 bridge, then you must also install ROS 1.
-   Follow the normal install instructions: http://wiki.ros.org/noetic/Installation/Ubuntu
+**Note**: If you're using a distribution that is based on Ubuntu (like Linux Mint) but does not identify itself as such, you'll get an error message like ``Unsupported OS [mint]``. In this case append ``--os=ubuntu:focal`` to the above command.
+
+*Optional*\ :
+   | If you want to use the ROS 1<->2 bridge, then you must also install ROS 1. \
+   | Follow the normal install instructions: http://wiki.ros.org/noetic/Installation/Ubuntu
 
 Installing the python3 libraries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
