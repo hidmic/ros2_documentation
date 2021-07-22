@@ -108,6 +108,8 @@ You need the following things installed before installing ROS 2.
       .. code-block:: bash
 
          python3 -m pip install --install-option="--include-path=/usr/local/include/" --install-option="--library-path=/usr/local/lib/" pygraphviz
+         
+   ``python -m pip install PyQt5 PySide2``
 
 *
   Install SROS2 dependencies
