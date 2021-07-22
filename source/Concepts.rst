@@ -21,6 +21,7 @@ Conceptual overviews provide relatively high-level, general background informati
    Concepts/About-Composition
    Concepts/About-Catment
    Concepts/About-Cross-Compilation
+   Concepts/About-Security
 
 
 The Core Stack Developer Concepts are much more detailed conceptual articles intended for developers who plan modify or contribute to the ROS 2 core:
@@ -99,6 +100,20 @@ Running the C++ talker node in one terminal will publish messages on a topic,
 and the Python listener node running in another terminal  will subscribe to messages on the same topic.
 
 You should see that these nodes discover each other automatically, and begin to exchange messages.
+
+Security
+^^^^^^^^
+
+ROS 2 includes the ability to secure communications among nodes within the ROS 2 computational graph.
+Similar to discovery, security happens through the underlying ROS 2 middleware (provided it has support for the corresponding security plugins).
+No additional software installation is needed to enable security; however, the middleware requires configuration files for each ROS graph participant.
+These files enable encryption and authentication, and define policies both for individual nodes and for the overall ROS graph.
+ROS 2 also adds a master "on/off" switch to control security behavior.
+
+ROS utilities can create the authoritative `trust anchor <https://en.wikipedia.org/wiki/Trust_anchor>`_ for a ROS application, or an external certificate authority can be used.
+
+See the :ref:`ROS 2 Security <ROS-2-Security>` article for additional details or ROS security features.
+
 
 Related Content
 ^^^^^^^^^^^^^^^
